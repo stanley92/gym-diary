@@ -3,41 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {
-    createBrowserRouter,
-    RouterProvider,
-} from "react-router-dom";
-import Home from './pages/home';
-import AboutMe from './pages/aboutme';
-import Reports from './pages/reports';
 
-// 1. Generate a browser router component to display in #root.
-// 2. The content within the children element will be displayed in the <Outlet /> component within App.js, depending on the current router path.
-// 3. Therefore, instead of having App.js render the <Home /> component, it will be incorporated into the browser router.
-// 4. The routing is established through the <Link /> component located in ./components/top-menu/HyperLinks.jsx.
+/*
+    (1) This code render React into an element with id="root".
+    
+    (2) <App /> is a root (parent) JSX Component where all other components resides in it as children.
 
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App />,
-        children:[
-            {
-                path:'/',
-                element: <Home />
-            },
-            {
-                path:'/about',
-                element: <AboutMe />
-            },
-            {
-                path:'/reports',
-                element: <Reports />
-            },
-        ]        
-    },
-]);
+    (3) Recall document.getElementById(), a commonly used function to perform DOM Manipulation.
 
-ReactDOM.render(<RouterProvider router={router} />, document.getElementById('root'));
+    (4) Explanation - The index.js file renders the root JSX called the <App /> to <div id="root"></div> in a generated index.html file.
+    The index.html file resides in the public folder. You should take a look at the content of the folder and look
+    for <div id="root"></div> element.
+*/
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
